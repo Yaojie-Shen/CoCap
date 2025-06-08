@@ -18,12 +18,12 @@ def reformat_registry_output(self: Registry):
 
 
 def main():
-    from mm_video.config.base import CUSTOM_CONFIG_REGISTRY, CUSTOM_CONFIG_CHECK_REGISTRY
-    from mm_video.data.build import DATASET_REGISTRY, COLLATE_FN_REGISTER
-    from mm_video.modeling.model import MODEL_REGISTRY
-    from mm_video.modeling.optimizer import OPTIMIZER_REGISTRY
-    from mm_video.modeling.loss import LOSS_REGISTRY
-    from mm_video.modeling.meter import METER_REGISTRY
+    from cocap.config.base import CUSTOM_CONFIG_REGISTRY, CUSTOM_CONFIG_CHECK_REGISTRY
+    from cocap.data.build import DATASET_REGISTRY, COLLATE_FN_REGISTER
+    from cocap.modeling.model import MODEL_REGISTRY
+    from cocap.modeling.optimizer import OPTIMIZER_REGISTRY
+    from cocap.modeling.loss import LOSS_REGISTRY
+    from cocap.modeling.meter import METER_REGISTRY
 
     for reg in (CUSTOM_CONFIG_REGISTRY, CUSTOM_CONFIG_CHECK_REGISTRY, DATASET_REGISTRY, COLLATE_FN_REGISTER,
                 MODEL_REGISTRY, OPTIMIZER_REGISTRY, LOSS_REGISTRY, METER_REGISTRY):

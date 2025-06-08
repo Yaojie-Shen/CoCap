@@ -50,11 +50,11 @@ The training is configured using YAML, and all the configurations are listed in 
 
 ```shell
 # msrvtt
-python3 mm_video/run_net.py --cfg configs/compressed_video/msrvtt_captioning.yaml
+python3 cocap/run_net.py --cfg configs/compressed_video/msrvtt_captioning.yaml
 # msvd
-python3 mm_video/run_net.py --cfg configs/compressed_video/msvd_captioning.yaml
+python3 cocap/run_net.py --cfg configs/compressed_video/msvd_captioning.yaml
 # vatex
-python3 mm_video/run_net.py --cfg configs/compressed_video/vatex_captioning.yaml
+python3 cocap/run_net.py --cfg configs/compressed_video/vatex_captioning.yaml
 ```
 
 By default, the logs and results will be saved to `./log/<experiment_name>/`. The loss and metrics are visualized using tensorboard.

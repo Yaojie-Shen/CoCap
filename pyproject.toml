@@ -1,0 +1,59 @@
+[project]
+name = "cocap"
+version = "0.0.2"
+description = ""
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.7"
+authors = [{ name = "Yaojie Shen", email = "syj.micro@outlook.com" }]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "torch>=2.0",
+    "torchvision",
+    "requests",
+    "pandas",
+    "tqdm",
+    "numpy",
+    "pycocoevalcap",
+    "decord",
+    "pillow",
+    "einops",
+    "easydict",
+    "timm",
+    "opencv-python",
+    "flow_vis",
+    "h5py",
+    "av",
+    "tensorboard",
+    "terminaltables",
+    "fvcore",
+    "lz4",
+    "ftfy",
+    "regex",
+    "colorlog",
+    "tabulate",
+    "joblib>=1.3.0",
+    "pyyaml"
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.urls]
+source_code = "https://github.com/yaojie-shen/CoCap"
+
+[project.scripts]
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+exclude = ["assets*", "configs*", "dataset*", "model_zoo*", "tools*", "test*", "venv*", "output*"]
+
+[tool.whell]
+exclude = ["assets*", "configs*", "dataset*", "model_zoo*", "tools*", "test*", "venv*", "output*"]

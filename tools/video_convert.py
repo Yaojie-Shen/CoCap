@@ -10,7 +10,7 @@ import os
 import joblib
 import tqdm
 import argparse
-from mm_video.utils.video import convert_video
+from cocap.utils.video import convert_video
 
 
 def main():

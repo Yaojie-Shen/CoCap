@@ -6,8 +6,8 @@
 
 import argparse
 
-from mm_video.utils.json import load_json
-from mm_video.trainer.cocap_trainer import evaluate
+from cocap.utils.json import load_json
+from cocap.trainer.cocap_trainer import evaluate
 
 
 def main(opt):
