@@ -7,10 +7,9 @@
 import unittest
 
 import torch
+from fvcore.common.config import CfgNode
 
 from cocap.modeling.compressed_video.modeling import CaptionHead, CoCap
-
-from fvcore.common.config import CfgNode
 
 
 class TestCaptionHead(unittest.TestCase):

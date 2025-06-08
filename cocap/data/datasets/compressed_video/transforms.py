@@ -4,11 +4,12 @@
 # @Project : MM-Video
 # @File    : transforms.py
 
+from typing import Sequence
+
 import einops
 import torch
-from torchvision import transforms
 import torchvision.transforms.functional as F
-from typing import Sequence
+from torchvision import transforms
 
 __all__ = ["DictRandomResizedCrop", "DictCenterCrop", "DictResize", "DictNormalize"]
 

@@ -4,9 +4,9 @@
 # @Project : MM-Video
 # @File    : bert.py
 
+import math
 import torch
 import torch.nn as nn
-import math
 
 
 def make_shifted_mask(input_mask, max_v_len, max_t_len, memory_len=0):

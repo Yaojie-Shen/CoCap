@@ -4,11 +4,10 @@
 # @Project : MM-Video
 # @File    : visualize.py
 
-import torch
 import numpy as np
-
-from torchvision.transforms.functional import normalize
+import torch
 from PIL import Image
+from torchvision.transforms.functional import normalize
 
 
 def _convert_to_numpy_array(data):

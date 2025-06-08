@@ -6,8 +6,9 @@
 
 import argparse
 import os
-import torch
 from argparse import ArgumentParser
+
+import torch
 
 
 def extract(args):

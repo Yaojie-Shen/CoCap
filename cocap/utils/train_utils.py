@@ -6,17 +6,17 @@
 
 import datetime
 import hashlib
+import itertools
+import logging
 import os
 import pickle
-import typing
-import torch
-import time
 import random
-import itertools
-import numpy as np
-import logging
+import time
+import typing
 from typing import *
 
+import numpy as np
+import torch
 import torch.distributed as dist
 from fvcore.common.config import CfgNode
 

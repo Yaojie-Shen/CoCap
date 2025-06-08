@@ -5,8 +5,9 @@
 # @File    : registry.py
 
 
-from fvcore.common.registry import Registry
 from typing import Any
+
+from fvcore.common.registry import Registry
 
 
 class LooseRegistry(Registry):

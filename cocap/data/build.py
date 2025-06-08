@@ -7,10 +7,9 @@
 import logging
 from typing import *
 
+import torch.distributed as dist
 from fvcore.common.config import CfgNode
 from fvcore.common.registry import Registry
-
-import torch.distributed as dist
 from torch.utils import data
 
 DATASET_REGISTRY = Registry("DATASET")

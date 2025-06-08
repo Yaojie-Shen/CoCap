@@ -4,41 +4,32 @@
 # @Project : MM-Video
 # @File    : cocap_trainer.py
 
-import os
 import logging
-import einops
-from tqdm import tqdm
-
-import numpy as np
-import torch
-import torch.nn as nn
-import torch.distributed as dist
-from torch.cuda.amp import GradScaler
-from torch.optim import lr_scheduler
+import os
 from collections import defaultdict
 
-from .build import TRAINER_REGISTRY, TrainerBase
-from ..data.build import build_loader
-from ..modeling.model import build_model
-from ..modeling.optimizer import build_optimizer
-from ..modeling.loss import build_loss
-from ..modeling.meter import build_meter
-from cocap.layers.bert import BertLayerNorm
-
-from ..utils.train_utils import CudaPreFetcher, gather_object_multiple_gpu, get_timestamp
-from ..utils.checkpoint import save_checkpoint, load_checkpoint, auto_resume, load_model
-from ..utils.writer import get_writer
-from ..utils.profile import Timer
-from ..utils.json import save_json
-
-from pycocoevalcap.tokenizer.ptbtokenizer import PTBTokenizer
+import torch
+import torch.distributed as dist
+import torch.nn as nn
 from pycocoevalcap.bleu.bleu import Bleu
+from pycocoevalcap.cider.cider import Cider
 from pycocoevalcap.meteor.meteor import Meteor
 from pycocoevalcap.rouge.rouge import Rouge
-from pycocoevalcap.cider.cider import Cider
 from pycocoevalcap.spice.spice import Spice
+from pycocoevalcap.tokenizer.ptbtokenizer import PTBTokenizer
+from torch.cuda.amp import GradScaler
+from torch.optim import lr_scheduler
+from tqdm import tqdm
 
-from typing import List, AnyStr
+from cocap.layers.bert import BertLayerNorm
+from .build import TRAINER_REGISTRY, TrainerBase
+from ..data.build import build_loader
+from ..modeling.loss import build_loss
+from ..modeling.model import build_model
+from ..modeling.optimizer import build_optimizer
+from ..utils.json import save_json
+from ..utils.profile import Timer
+from ..utils.train_utils import CudaPreFetcher, gather_object_multiple_gpu, get_timestamp
 
 logger = logging.getLogger(__name__)
 

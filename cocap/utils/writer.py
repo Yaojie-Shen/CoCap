@@ -4,14 +4,15 @@
 # @Project : MM-Video
 # @File    : writer.py
 
-from torch.utils.tensorboard import SummaryWriter
 import torch.distributed as dist
+from torch.utils.tensorboard import SummaryWriter
 
 
 class DummySummaryWriter:
     """
     Issue: https://github.com/pytorch/pytorch/issues/24236
     """
+
     def __init__(*args, **kwargs):
         pass
 

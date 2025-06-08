@@ -5,9 +5,10 @@
 # @File    : loss.py
 
 import logging
+
 import torch.nn as nn
-from fvcore.common.registry import Registry
 from fvcore.common.config import CfgNode
+from fvcore.common.registry import Registry
 
 __all__ = ["LOSS_REGISTRY", "LossBase", "build_loss"]
 

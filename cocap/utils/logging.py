@@ -5,8 +5,9 @@
 # @File    : logging.py
 
 
-import os
 import logging
+import os
+
 import colorlog
 import torch.distributed as dist
 

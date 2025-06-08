@@ -7,21 +7,20 @@
 # based on https://github.com/m-bain/frozen-in-time/blob/main/base/base_dataset.py
 
 
-import torch
-import torch.nn.functional
-import numpy as np
-
-import random
-import subprocess
 import logging
 import pickle
+import random
+import subprocess
 import traceback
-import lz4.frame
-from fvcore.common.registry import Registry
 from typing import Dict
 
 import cv_reader
 import decord
+import lz4.frame
+import numpy as np
+import torch
+import torch.nn.functional
+from fvcore.common.registry import Registry
 
 from cocap.utils.profile import Timer
 from .compressed_video_utils import deserialize

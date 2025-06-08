@@ -5,6 +5,7 @@
 # @File    : compressed_video.py
 
 from fvcore.common.config import CfgNode
+
 from ..base import CUSTOM_CONFIG_REGISTRY, CUSTOM_CONFIG_CHECK_REGISTRY
 
 

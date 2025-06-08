@@ -5,6 +5,7 @@
 # @File    : test_compressed_video_transformer.py
 
 import unittest
+
 import torch
 
 from cocap.modeling.compressed_video.compressed_video_transformer import CompressedVideoTransformer

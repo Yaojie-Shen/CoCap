@@ -4,27 +4,24 @@
 # @Project : MM-Video
 # @File    : build.py
 
-import os
-from tqdm import tqdm
 import logging
-from typing import *
+import os
 
 import torch
-from torch import nn, optim
-from torch.utils import data
-from torch.cuda.amp import GradScaler, autocast
 import torch.distributed as dist
 from fvcore.common.config import CfgNode
 from fvcore.common.registry import Registry
+from torch import nn
+from torch.cuda.amp import GradScaler, autocast
+from tqdm import tqdm
 
 from ..data.build import build_loader
-from ..modeling.model import build_model
-from ..modeling.optimizer import build_optimizer, build_scheduler
 from ..modeling.loss import build_loss
 from ..modeling.meter import build_meter
-
-from ..utils.train_utils import CudaPreFetcher
+from ..modeling.model import build_model
+from ..modeling.optimizer import build_optimizer, build_scheduler
 from ..utils.checkpoint import save_checkpoint, load_checkpoint, auto_resume, load_model, save_model
+from ..utils.train_utils import CudaPreFetcher
 from ..utils.writer import get_writer
 
 logger = logging.getLogger(__name__)
@@ -61,7 +58,7 @@ class TrainerBase:
         self.meter = None
 
         self.build()
-        
+
         if not dist.is_initialized() or dist.get_rank() == 0:
             self.info()
 

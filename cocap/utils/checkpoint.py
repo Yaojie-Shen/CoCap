@@ -5,11 +5,12 @@
 # @File    : checkpoint.py
 
 
-import os
-import torch
 import logging
-from typing import *
+import os
 from collections import OrderedDict
+from typing import *
+
+import torch
 
 logger = logging.getLogger(__name__)
 

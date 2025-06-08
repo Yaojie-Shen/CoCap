@@ -4,13 +4,14 @@
 # @Project : MM-Video
 # @File    : compressed_video_transformer.py
 
-import torch
-import torch.nn as nn
-import einops
 from typing import Optional, Dict, Tuple
 
-from cocap.layers.clip.model import VisionTransformer, CrossResidualAttentionBlock, LayerNorm, CLIP
+import einops
+import torch
+import torch.nn as nn
+
 from cocap.layers.clip.clip import get_model_path
+from cocap.layers.clip.model import VisionTransformer, CrossResidualAttentionBlock, LayerNorm, CLIP
 
 
 class IFrameEncoder(VisionTransformer):

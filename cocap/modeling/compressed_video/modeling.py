@@ -7,20 +7,16 @@
 import logging
 from typing import *
 
-import torch
-from torch import nn
-import torch.nn.functional as F
 import numpy as np
-
-from cocap.layers.clip.model import Transformer, LayerNorm
-from cocap.layers.bert import BertSelfEncoder, BertLMPredictionHead
-from cocap.modeling.model import MODEL_REGISTRY
-from cocap.modeling.compressed_video.compressed_video_transformer import CompressedVideoTransformer
-
-from cocap.layers.clip.model import CLIP
-from cocap.layers.clip.clip import get_model_path
-
+import torch
 from easydict import EasyDict as edict
+from torch import nn
+
+from cocap.layers.bert import BertSelfEncoder, BertLMPredictionHead
+from cocap.layers.clip.clip import get_model_path
+from cocap.layers.clip.model import CLIP
+from cocap.modeling.compressed_video.compressed_video_transformer import CompressedVideoTransformer
+from cocap.modeling.model import MODEL_REGISTRY
 
 logger = logging.getLogger(__name__)
 

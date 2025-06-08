@@ -4,6 +4,5 @@
 # @Project : MM-Video
 # @File    : __init__.py
 
-from .base import get_config, dump
-
 from . import custom_config
+from .base import get_config, dump

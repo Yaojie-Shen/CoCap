@@ -5,11 +5,11 @@
 # @File    : video.py
 
 
+import os
+import subprocess
 from typing import *
 
 import cv2
-import os
-import subprocess
 from joblib import Parallel, delayed
 
 __all__ = ["get_duration_info", "convert_video"]

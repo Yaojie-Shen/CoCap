@@ -5,8 +5,9 @@
 # @File    : image.py
 
 
-from PIL import Image
 from io import BytesIO
+
+from PIL import Image
 
 __all__ = ['byte_imread', "byte_imwrite"]
 

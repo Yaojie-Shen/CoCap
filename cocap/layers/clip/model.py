@@ -2,6 +2,7 @@
 # https://github.com/ricardodeazambuja/CLIP/blob/attn_weights/clip/model.py
 
 
+import logging
 from collections import OrderedDict
 from typing import Tuple, Union
 
@@ -10,8 +11,6 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 from torch import nn
-
-import logging
 
 logger = logging.getLogger(__name__)
 

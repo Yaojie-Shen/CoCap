@@ -4,21 +4,20 @@
 # @Project : MM-Video
 # @File    : dataset_vatex.py
 
-import os
-import torch
-import random
-from torch.utils import data
 import json
+import os
+import random
 from collections import defaultdict
+
+import torch
+from torch.utils import data
 from torchvision import transforms
 
-from cocap.layers.clip import clip
-
 from cocap.data.build import DATASET_REGISTRY
-
-from .video_text_base import get_video
+from cocap.layers.clip import clip
 from .transforms import (DictNormalize, DictCenterCrop, DictRandomHorizontalFlip)
 from .video_readers import VIDEO_READER_REGISTRY
+from .video_text_base import get_video
 
 
 def load_json(file_path):

@@ -4,19 +4,20 @@
 # @Project : MM-Video
 # @File    : common_meter.py
 
-from cocap.modeling.meter import METER_REGISTRY, MeterBase
-
-import torch
-import numpy as np
 import datetime
 import json
 import logging
 import os
-import torch.distributed as dist
-from torch.utils.tensorboard import SummaryWriter
-from cocap.utils.train_utils import gather_object_multiple_gpu
-from fvcore.common.config import CfgNode
 from typing import Dict, Any
+
+import numpy as np
+import torch
+import torch.distributed as dist
+from fvcore.common.config import CfgNode
+from torch.utils.tensorboard import SummaryWriter
+
+from cocap.modeling.meter import METER_REGISTRY, MeterBase
+from cocap.utils.train_utils import gather_object_multiple_gpu
 
 logger = logging.getLogger(__name__)
 

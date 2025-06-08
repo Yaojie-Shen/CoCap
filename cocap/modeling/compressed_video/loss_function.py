@@ -4,14 +4,13 @@
 # @Project : MM-Video
 # @File    : loss_function.py
 
-from ..loss import LOSS_REGISTRY, LossBase
+import logging
 
 import torch
-from torch import nn
 import torch.nn.functional as F
-import numpy as np
+from torch import nn
 
-import logging
+from ..loss import LOSS_REGISTRY, LossBase
 
 logger = logging.getLogger(__name__)
 

@@ -95,7 +95,6 @@ def get_text_inputs_with_mlm(sentence: str, tokenizer, max_words):
 
 def get_video(video_reader, video_path, max_frames, sample, hevc_config=None):
     assert os.path.exists(video_path), f"Video file not found: {video_path}"
-    print(video_path)
     video_mask = torch.ones((max_frames,), dtype=torch.int)
     if video_reader.__name__ in ["read_frames_compressed_domain"]:
         assert hevc_config is not None, "hevc_config should be set when using read_frames_compressed_domain"

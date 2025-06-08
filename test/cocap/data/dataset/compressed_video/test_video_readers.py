@@ -6,10 +6,11 @@
 
 import os
 import unittest
+
 import cv_reader
-import numpy as np
-import matplotlib.pyplot as plt
 import flow_vis
+import matplotlib.pyplot as plt
+import numpy as np
 import tqdm
 
 from cocap.data.datasets.compressed_video.video_readers import read_frames_compressed_domain

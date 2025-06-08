@@ -6,8 +6,8 @@
 
 import argparse
 
-from cocap.utils.json import load_json
 from cocap.trainer.cocap_trainer import evaluate
+from cocap.utils.json import load_json
 
 
 def main(opt):

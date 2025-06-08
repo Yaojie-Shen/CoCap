@@ -6,10 +6,12 @@
 
 """convert video to h264/h265 format"""
 
+import argparse
 import os
+
 import joblib
 import tqdm
-import argparse
+
 from cocap.utils.video import convert_video
 
 

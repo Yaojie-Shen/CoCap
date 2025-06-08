@@ -5,6 +5,7 @@
 # @File    : compressed_video_utils.py
 
 import numpy as np
+
 from cocap.utils.image import byte_imread, byte_imwrite
 
 

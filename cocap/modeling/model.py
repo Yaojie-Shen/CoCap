@@ -5,14 +5,13 @@
 # @File    : model.py
 
 import logging
+from typing import AnyStr, Dict
 
 import torch
-import torch.nn as nn
 import torch.distributed as dist
-
+import torch.nn as nn
 from fvcore.common.config import CfgNode
 from fvcore.common.registry import Registry
-from typing import AnyStr, Dict
 
 MODEL_REGISTRY = Registry("MODEL")
 

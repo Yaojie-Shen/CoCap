@@ -5,11 +5,11 @@
 # @File    : optimizer.py
 
 import logging
+from inspect import isclass
 
-from torch import optim
 from fvcore.common.config import CfgNode
 from fvcore.common.registry import Registry
-from inspect import isclass
+from torch import optim
 
 logger = logging.getLogger(__name__)
 

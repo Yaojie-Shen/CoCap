@@ -5,23 +5,19 @@
 # @File    : dataset_msrvtt.py
 
 import os
-import torch
 import random
-from torch.utils import data
-import json
-import pandas as pd
 from collections import defaultdict
+
+import torch
+from torch.utils import data
 from torchvision import transforms
 
-from cocap.layers.clip import clip
-
 from cocap.data.build import DATASET_REGISTRY
-
-from .video_text_base import get_video
+from cocap.layers.clip import clip
+from cocap.utils.json import load_json
 from .transforms import (DictNormalize, DictCenterCrop, DictRandomHorizontalFlip)
 from .video_readers import VIDEO_READER_REGISTRY
-
-from cocap.utils.json import load_json
+from .video_text_base import get_video
 
 
 @DATASET_REGISTRY.register()

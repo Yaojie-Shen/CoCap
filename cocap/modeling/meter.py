@@ -5,11 +5,11 @@
 # @File    : meter.py
 
 import logging
-import torch
 
-from torch.utils.tensorboard import SummaryWriter
+import torch
 from fvcore.common.config import CfgNode
 from fvcore.common.registry import Registry
+from torch.utils.tensorboard import SummaryWriter
 
 METER_REGISTRY = Registry("METER")
 logger = logging.getLogger(__name__)

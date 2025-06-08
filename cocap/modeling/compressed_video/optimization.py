@@ -15,12 +15,13 @@
 
 """PyTorch optimization for BERT model."""
 
+import logging
+
 import math
 import torch
+from torch.nn.utils import clip_grad_norm_
 from torch.optim import Optimizer
 from torch.optim.optimizer import required
-from torch.nn.utils import clip_grad_norm_
-import logging
 
 from ..optimizer import OPTIMIZER_REGISTRY
 

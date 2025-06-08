@@ -5,7 +5,6 @@
 # @File    : test_train_utils.py
 
 import unittest
-import tempfile
 
 import torch.cuda
 

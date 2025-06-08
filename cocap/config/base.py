@@ -7,12 +7,12 @@
 import argparse
 import logging
 import os
+from ipaddress import ip_address, IPv4Address
 
 import torch
+import yaml
 from fvcore.common.config import CfgNode
 from fvcore.common.registry import Registry
-from ipaddress import ip_address, IPv4Address
-import yaml
 from yaml.loader import SafeLoader
 
 logger = logging.getLogger(__name__)

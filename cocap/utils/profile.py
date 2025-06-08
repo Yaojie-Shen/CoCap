@@ -4,12 +4,13 @@
 # @Project : MM-Video
 # @File    : profile.py
 
-import time
+import functools
 import logging
+import time
+from collections import defaultdict, deque
+
 import numpy as np
 import torch
-from collections import defaultdict, deque
-import functools
 from tabulate import tabulate
 
 logger = logging.getLogger(__name__)
