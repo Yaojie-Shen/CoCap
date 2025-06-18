@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2022/11/13 00:25
 # @Author  : Yaojie Shen
-# @Project : MM-Video
+# @Project : CoCap
 # @File    : checkpoint.py
 
 
@@ -55,14 +55,14 @@ def load_checkpoint(ckpt_file, model: torch.nn.Module, optimizer: Union[torch.op
         missing = model.load_state_dict(state_dict["model"], strict=False)
         logger.debug(f"checkpoint key missing: {missing}")
     except RuntimeError:
-        print("fail to directly recover from checkpoint, try to match each layers...")
+        print("fail to directly recover from checkpoint, try to match each modules...")
         net_dict = model.state_dict()
-        print("find %s layers", len(state_dict["model"].items()))
+        print("find %s modules", len(state_dict["model"].items()))
         missing_keys = [k for k, v in state_dict["model"].items() if k not in net_dict or net_dict[k].shape != v.shape]
         print("missing key: %s", missing_keys)
         state_dict["model"] = {k: v for k, v in state_dict["model"].items() if
                                (k in net_dict and net_dict[k].shape == v.shape)}
-        print("resume %s layers from checkpoint", len(state_dict["model"].items()))
+        print("resume %s modules from checkpoint", len(state_dict["model"].items()))
         net_dict.update(state_dict["model"])
         model.load_state_dict(OrderedDict(net_dict))
 

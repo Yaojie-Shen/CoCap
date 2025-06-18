@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2022/12/9 20:42
 # @Author  : Yaojie Shen
-# @Project : MM-Video
+# @Project : CoCap
 # @File    : compressed_video_utils.py
 
 import numpy as np

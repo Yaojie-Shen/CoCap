@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 9/5/23
 # @Author  : Yaojie Shen
-# @Project : MM-Video
+# @Project : CoCap
 # @File    : visualize.py
 
 import numpy as np

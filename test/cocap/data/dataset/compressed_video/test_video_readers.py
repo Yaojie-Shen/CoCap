@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2022/12/12 12:36
 # @Author  : Yaojie Shen
-# @Project : MM-Video
+# @Project : CoCap
 # @File    : test_video_readers.py
 
 import os

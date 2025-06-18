@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2023/2/18 06:03
 # @Author  : Yaojie Shen
-# @Project : MM-Video
+# @Project : CoCap
 # @File    : json.py
 
 import json

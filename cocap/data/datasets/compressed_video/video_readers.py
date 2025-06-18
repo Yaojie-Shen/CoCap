@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2022/8/10 14:56
 # @Author  : Yaojie Shen
-# @Project : MM-Video
+# @Project : CoCap
 # @File    : video_readers.py
 
 # based on https://github.com/m-bain/frozen-in-time/blob/main/base/base_dataset.py

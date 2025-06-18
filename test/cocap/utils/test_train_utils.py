@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 8/2/23
 # @Author  : Yaojie Shen
-# @Project : MM-Video
+# @Project : CoCap
 # @File    : test_train_utils.py
 
 import unittest

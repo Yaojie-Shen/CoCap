@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2022/12/3 14:54
 # @Author  : Yaojie Shen
-# @Project : MM-Video
+# @Project : CoCap
 # @File    : video_text_base.py
 import logging
 import os.path
 import random
+from dataclasses import dataclass
 
 import torch
 
@@ -93,17 +94,27 @@ def get_text_inputs_with_mlm(sentence: str, tokenizer, max_words):
     return input_ids, input_mask, segment_ids, torch.tensor(masked_token_ids), torch.tensor(token_labels)
 
 
-def get_video(video_reader, video_path, max_frames, sample, hevc_config=None):
+@dataclass
+class CVConfig:
+    num_gop: int
+    num_mv: int
+    num_res: int
+    with_residual: bool
+    use_pre_extract: bool
+    sample: str
+
+
+def get_video(video_reader, video_path, max_frames, sample, hevc_config: None | CVConfig = None):
     assert os.path.exists(video_path), f"Video file not found: {video_path}"
     video_mask = torch.ones((max_frames,), dtype=torch.int)
     if video_reader.__name__ in ["read_frames_compressed_domain"]:
         assert hevc_config is not None, "hevc_config should be set when using read_frames_compressed_domain"
         video, _ = video_reader(video_path,
-                                resample_num_gop=hevc_config.NUM_GOP, resample_num_mv=hevc_config.NUM_MV,
-                                resample_num_res=hevc_config.NUM_RES,
-                                with_residual=hevc_config.WITH_RESIDUAL,
-                                pre_extract=hevc_config.USE_PRE_EXTRACT,
-                                sample=hevc_config.SAMPLE if hevc_config.SAMPLE == "pad" else sample)
+                                resample_num_gop=hevc_config.num_gop, resample_num_mv=hevc_config.num_mv,
+                                resample_num_res=hevc_config.num_res,
+                                with_residual=hevc_config.with_residual,
+                                pre_extract=hevc_config.use_pre_extract,
+                                sample=hevc_config.sample if hevc_config.sample == "pad" else sample)
     else:
         video, _ = video_reader(video_path, max_frames, sample)
     return video, video_mask

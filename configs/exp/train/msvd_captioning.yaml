@@ -1,0 +1,11 @@
+# @package _global_
+
+defaults:
+  - /train # define in code
+  - /dataset@train_dataloader.dataset: msvd
+  - /dataset@val_dataloader.dataset: msvd
+  - /exp/train/base
+  - _self_
+
+trainer:
+  default_root_dir: "./logs/msvd_captioning"

@@ -1,37 +1,47 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2022/11/17 16:54
 # @Author  : Yaojie Shen
-# @Project : MM-Video
+# @Project : CoCap
 # @File    : dataset_msvd.py
 
 import os
 import random
 from collections import defaultdict
+from typing import Literal
 
 import torch
 from torch.utils import data
 from torchvision import transforms
 
-from cocap.data.build import DATASET_REGISTRY
-from cocap.layers.clip import clip
+from cocap.modules.clip import clip
 from cocap.utils.json import load_json
 from .transforms import (DictNormalize, DictCenterCrop, DictRandomHorizontalFlip)
 from .video_readers import VIDEO_READER_REGISTRY
-from .video_text_base import get_video
+from .video_text_base import get_video, CVConfig
 
 
-@DATASET_REGISTRY.register()
-class MSVDCaptioningDatasetForCLIP(data.Dataset):
-    def __init__(self, cfg, split):
+class MSVDCaptioningDataset(data.Dataset):
+    def __init__(
+            self,
+            video_root: str,
+            max_words: int,
+            max_frames: int,
+            unfold_sentences: False,
+            video_size: tuple[int, int],
+            metadata: str,
+            video_reader: str,
+            cv_config: CVConfig,
+            split: Literal["train", "test"],
+    ):
         self.split = split
-        self.video_root = cfg.DATA.DATASET.MSVD.VIDEO_ROOT
-        self.max_words = cfg.DATA.DATASET.MSVD.MAX_WORDS
-        self.max_frames = cfg.DATA.DATASET.MSVD.MAX_FRAMES
-        self.unfold_sentences = cfg.DATA.DATASET.MSVD.UNFOLD_SENTENCES  # only affect the train split
-        self.height, self.width = cfg.DATA.DATASET.MSVD.VIDEO_SIZE
+        self.video_root = video_root
+        self.max_words = max_words
+        self.max_frames = max_frames
+        self.unfold_sentences = unfold_sentences  # only affect the train split
+        self.height, self.width = video_size
         self.sentences = []  # (vid, [sentence, ...])
-        self.h265_cfg = cfg.CV_CONFIG
-        metadata = load_json(cfg.DATA.DATASET.MSVD.METADATA)
+        self.h265_cfg = cv_config
+        metadata = load_json(metadata)
 
         split_video_ids = metadata[split].copy()
         if self.unfold_sentences:
@@ -48,7 +58,7 @@ class MSVDCaptioningDatasetForCLIP(data.Dataset):
             self.sentences = list(vid2sentence.items())
 
         # self.sentences = self.sentences[:50000]
-        self.video_reader = VIDEO_READER_REGISTRY.get(cfg.DATA.DATASET.MSVD.VIDEO_READER)
+        self.video_reader = VIDEO_READER_REGISTRY.get(video_reader)
         # transforms
         normalize = DictNormalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
         if split == "train":
