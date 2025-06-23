@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2022/11/25 15:16
 # @Author  : Yaojie Shen
-# @Project : MM-Video
+# @Project : CoCap
 # @File    : checkpoint_tweak.py
 
 import argparse
 import os
-import torch
 from argparse import ArgumentParser
+
+import torch
 
 
 def extract(args):

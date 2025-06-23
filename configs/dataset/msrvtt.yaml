@@ -1,0 +1,19 @@
+_target_: "cocap.data.datasets.compressed_video.dataset_msrvtt.MSRVTTCaptioningDataset"
+
+video_root: "./dataset/msrvtt/videos_h264_keyint_60"
+metadata: "./dataset/msrvtt/MSRVTT_data.json"
+
+video_reader: "read_frames_compressed_domain"
+max_frames: 8
+video_size:
+  - 224
+  - 224
+max_words: 77
+unfold_sentences: True
+cv_config:
+  num_gop: 8
+  num_mv: 59
+  num_res: 59
+  with_residual: True
+  use_pre_extract: False
+  sample: "rand"

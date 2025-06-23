@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2023/2/21 21:48
 # @Author  : Yaojie Shen
-# @Project : MM-Video
+# @Project : CoCap
 # @File    : check_video_integrity.py
 
 import argparse
 import json
 import os.path
-import joblib
+
 import cv2
+import joblib
 import tqdm
 
 

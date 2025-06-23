@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2023/3/13 23:35
 # @Author  : Yaojie Shen
-# @Project : MM-Video
+# @Project : CoCap
 # @File    : compute_cider.py
 
 import argparse
 
-from mm_video.utils.json import load_json
-from mm_video.trainer.cocap_trainer import evaluate
+from cocap.trainer.cocap_trainer import evaluate
+from cocap.utils.json import load_json
 
 
 def main(opt):

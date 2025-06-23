@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2022/9/27 14:15
 # @Author  : Yaojie Shen
-# @Project : MM-Video
+# @Project : CoCap
 # @File    : video_convert.py
 
 """convert video to h264/h265 format"""
 
+import argparse
 import os
+
 import joblib
 import tqdm
-import argparse
-from mm_video.utils.video import convert_video
+
+from cocap.utils.video import convert_video
 
 
 def main():
