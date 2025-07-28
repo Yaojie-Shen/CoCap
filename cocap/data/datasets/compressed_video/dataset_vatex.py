@@ -91,9 +91,12 @@ class VATEXCaptioningDataset(data.Dataset):
     def __len__(self):
         return len(self.sentences)
 
+    def _get_video_path(self, video_id):
+        return os.path.join(self.video_root, f"{video_id}.mp4")
+
     def _get_video(self, video_id):
         video, video_mask = get_video(video_reader=self.video_reader,
-                                      video_path=os.path.join(self.video_root, f"{video_id}.mp4"),
+                                      video_path=self._get_video_path(video_id),
                                       max_frames=self.max_frames,
                                       sample="rand" if self.split == "train" else "uniform",
                                       hevc_config=self.h265_cfg)
